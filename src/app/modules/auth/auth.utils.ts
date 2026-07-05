@@ -1,17 +1,13 @@
-import type { CookieOptions } from "express";
-import jwt from "jsonwebtoken";
-import config from "../../config";
+import type { CookieOptions } from 'express';
+import jwt from 'jsonwebtoken';
+import config from '../../config';
 
-export const createToken = (
-  jwtPayload: Record<string, any>,
-  secret: string,
-  expiresIn: string
-) => {
+export const createToken = (jwtPayload: Record<string, any>, secret: string, expiresIn: string) => {
   return jwt.sign(jwtPayload, secret, {
     expiresIn: expiresIn as any,
   });
 };
-
+adsfasdfasdfasdf;
 export const generateJwtPayload = (user: {
   _id: any;
   name?: string;
@@ -20,7 +16,7 @@ export const generateJwtPayload = (user: {
 }) => {
   return {
     id: user._id.toString(),
-    name: user.name || "",
+    name: user.name || '',
     email: user.email,
     role: user.role,
   };
@@ -28,9 +24,9 @@ export const generateJwtPayload = (user: {
 
 export const getCookieOptions = (maxAge?: number): CookieOptions => {
   const options: CookieOptions = {
-    secure: config.NODE_ENV === "production",
+    secure: config.NODE_ENV === 'production',
     httpOnly: true,
-    sameSite: config.NODE_ENV === "production" ? "none" : "lax",
+    sameSite: config.NODE_ENV === 'production' ? 'none' : 'lax',
   };
 
   if (maxAge !== undefined) {
