@@ -36,7 +36,7 @@ console.log(DIVIDER);
 console.log(chalk.dim('  Only staged files will be checked (via lint-staged)'));
 
 // Step 1: Lint + Format staged files only
-run('Lint & Format (lint-staged)', 'npx lint-staged');
+run('Lint & Format (lint-staged)', 'yarn lint-staged');
 
 const totalMs = Math.round(performance.now() - totalStart);
 console.log(`\n${DIVIDER}`);
