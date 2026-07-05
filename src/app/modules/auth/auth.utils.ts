@@ -7,7 +7,6 @@ export const createToken = (jwtPayload: Record<string, any>, secret: string, exp
     expiresIn: expiresIn as any,
   });
 };
-adsfasdfasdfasdf;
 export const generateJwtPayload = (user: {
   _id: any;
   name?: string;
