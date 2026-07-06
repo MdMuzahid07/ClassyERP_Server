@@ -87,8 +87,8 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 const allowedOrigins =
   config.NODE_ENV === 'production'
-    ? ['https://mdmuzahid.vercel.app', 'https://www.mdmuzahid.dev']
-    : ['http://localhost:3000', 'http://localhost:5173', 'http://127.0.0.1:5173'];
+    ? ['https://classyerp.vercel.app']
+    : ['http://localhost:5173', 'https://classyerp.vercel.app'];
 
 app.use(
   cors({
