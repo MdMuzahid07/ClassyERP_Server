@@ -12,7 +12,7 @@ const seedMockData = async () => {
     }
 
     // Connect to database
-    await mongoose.connect(config.database_url);
+    await mongoose.connect(config.database_url, { dbName: config.database_name });
     console.log('🌱 Database connected for mock seeding...');
 
     // Clear existing collections

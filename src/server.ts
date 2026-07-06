@@ -58,6 +58,7 @@ async function gracefulShutdown(signal: string, exitCode = 0) {
 async function main() {
   try {
     await mongoose.connect(config.database_url, {
+      dbName: config.database_name,
       serverSelectionTimeoutMS: 5000,
       socketTimeoutMS: 45000,
       connectTimeoutMS: 10000,

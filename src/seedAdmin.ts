@@ -11,7 +11,7 @@ const seedAdmin = async () => {
     }
 
     // Connect
-    await mongoose.connect(config.database_url);
+    await mongoose.connect(config.database_url, { dbName: config.database_name });
     console.log('🌱 Database connected for seeding...');
 
     // Define Credentials
