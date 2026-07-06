@@ -10,11 +10,11 @@ const createProductIntoDB = async (payload: IProduct) => {
 const getAllProductsFromDB = async (query: Record<string, unknown>) => {
   const searchableFields = ['name', 'sku', 'category'];
 
-  // Clone/re-instantiate query builder for counting total
+  // Run count on filtered/searched products
   const countQuery = new QueryBuilder(ProductModel.find(), query).search(searchableFields).filter();
   const total = await countQuery.modelQuery.countDocuments();
 
-  // Query builder for retrieving paginated data
+  // Retrieve paginated products
   const productQuery = new QueryBuilder(ProductModel.find(), query)
     .search(searchableFields)
     .filter()
@@ -22,22 +22,21 @@ const getAllProductsFromDB = async (query: Record<string, unknown>) => {
     .paginate()
     .fields();
 
-  const products = await productQuery.modelQuery.lean();
+  const products = await productQuery.modelQuery.populate('createdBy', 'name email role').lean();
 
   const page = Number(query.page) || 1;
   const limit = Number(query.limit) || 10;
-  const pages = Math.ceil(total / limit) || 1;
 
   return {
     products,
     total,
     page,
-    pages,
+    limit,
   };
 };
 
 const getProductByIdFromDB = async (id: string) => {
-  const result = await ProductModel.findById(id).lean();
+  const result = await ProductModel.findById(id).populate('createdBy', 'name email role').lean();
   return result;
 };
 
@@ -61,3 +60,4 @@ export const ProductService = {
   updateProductInDB,
   deleteProductFromDB,
 };
+export default ProductService;

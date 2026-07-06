@@ -1,21 +1,30 @@
 import type { CookieOptions } from 'express';
 import jwt from 'jsonwebtoken';
+import { type Types } from 'mongoose';
 import config from '../../config';
 
-export const createToken = (jwtPayload: Record<string, any>, secret: string, expiresIn: string) => {
+export const createToken = (
+  jwtPayload: Record<string, unknown>,
+  secret: string,
+  expiresIn: string
+) => {
   return jwt.sign(jwtPayload, secret, {
-    expiresIn: expiresIn as any,
+    expiresIn,
   });
 };
+
+export const verifyToken = (token: string, secret: string) => {
+  return jwt.verify(token, secret);
+};
 export const generateJwtPayload = (user: {
-  _id: any;
+  _id: Types.ObjectId | string;
   name?: string;
   email: string;
   role: string;
 }) => {
   return {
     id: user._id.toString(),
-    name: user.name || '',
+    name: user.name ?? '',
     email: user.email,
     role: user.role,
   };

@@ -13,6 +13,7 @@ const productSchema = new Schema<IProduct>(
       required: [true, 'SKU is required'],
       unique: true,
       trim: true,
+      uppercase: true,
       index: true,
     },
     category: {
@@ -35,10 +36,16 @@ const productSchema = new Schema<IProduct>(
       type: Number,
       required: [true, 'Stock quantity is required'],
       min: [0, 'Stock quantity cannot be negative'],
+      default: 0,
     },
-    productImage: {
+    image: {
       type: String,
       required: [true, 'Product image is required'],
+    },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: [true, 'Creator reference is required'],
     },
   },
   {
@@ -46,7 +53,13 @@ const productSchema = new Schema<IProduct>(
   }
 );
 
-// Optimize search by indexing name
-productSchema.index({ name: 'text' });
+// Enforce SKU uppercase and trim on save/update hooks
+productSchema.pre('save', function (next) {
+  if (this.sku) {
+    this.sku = this.sku.toUpperCase().trim();
+  }
+  next();
+});
 
 export const ProductModel = model<IProduct>('Product', productSchema);
+export default ProductModel;

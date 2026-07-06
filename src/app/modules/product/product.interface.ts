@@ -1,4 +1,4 @@
-import { type Document } from 'mongoose';
+import { type Document, type Types } from 'mongoose';
 
 export interface IProduct extends Document {
   name: string;
@@ -7,7 +7,8 @@ export interface IProduct extends Document {
   purchasePrice: number;
   sellingPrice: number;
   stockQuantity: number;
-  productImage: string;
+  image: string; // Local storage path, e.g., "uploads/products/uuid-filename.jpg"
+  createdBy: Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
 }

@@ -1,7 +1,7 @@
-import bcrypt from "bcrypt";
-import { Schema, model } from "mongoose";
-import config from "../../config";
-import type { IUser, IUserMethods, UserModelType } from "./auth.interface";
+import bcrypt from 'bcrypt';
+import { Schema, model } from 'mongoose';
+import config from '../../config';
+import type { IUser, IUserMethods, UserModelType } from './auth.interface';
 
 const userSchema = new Schema<IUser, UserModelType, IUserMethods>(
   {
@@ -23,34 +23,44 @@ const userSchema = new Schema<IUser, UserModelType, IUserMethods>(
     },
     role: {
       type: String,
-      enum: ["Admin", "Manager", "Employee"],
-      default: "Employee",
+      enum: ['Admin', 'Manager', 'Employee'],
+      default: 'Employee',
+    },
+    isActive: {
+      type: Boolean,
+      default: true,
     },
   },
   {
     timestamps: true,
+    toJSON: {
+      transform: function (doc, ret) {
+        delete ret.password;
+        return ret;
+      },
+    },
   }
 );
 
 // Hash password before saving
-userSchema.pre("save", async function (next) {
-  const user = this;
-  if (!user.isModified("password")) return next();
+userSchema.pre('save', async function (next) {
+  if (!this.isModified('password') || !this.password) return next();
 
   try {
-    user.password = await bcrypt.hash(
-      user.password as string,
-      config.bcrypt_salt_rounds
-    );
+    this.password = await bcrypt.hash(this.password, config.bcrypt_salt_rounds);
     next();
-  } catch (error: any) {
-    next(error);
+  } catch (error) {
+    next(error as Error);
   }
 });
 
-// Compare password method
+// Compare password methods
 userSchema.methods.comparePassword = async function (plainText: string) {
-  return bcrypt.compare(plainText, this.password as string);
+  return bcrypt.compare(plainText, this.password ?? '');
 };
 
-export const UserModel = model<IUser, UserModelType>("User", userSchema);
+userSchema.methods.isPasswordMatched = async function (plainText: string) {
+  return bcrypt.compare(plainText, this.password ?? '');
+};
+
+export const UserModel = model<IUser, UserModelType>('User', userSchema);
