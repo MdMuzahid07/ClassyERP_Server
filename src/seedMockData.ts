@@ -146,80 +146,12 @@ const seedMockData = async () => {
           'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&auto=format&fit=crop',
         createdBy: manager1._id,
       },
-      {
-        name: 'Portable Bluetooth Speaker',
-        sku: 'ELEC-SPEA-07',
-        category: 'Electronics',
-        purchasePrice: 45,
-        sellingPrice: 89,
-        stockQuantity: 18,
-        image:
-          'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&auto=format&fit=crop',
-        createdBy: manager2._id,
-      },
-
-      // Home & Kitchen Appliances
-      {
-        name: 'Espresso Coffee Maker',
-        sku: 'APPL-COFF-01',
-        category: 'Appliances',
-        purchasePrice: 150,
-        sellingPrice: 249,
-        stockQuantity: 12,
-        image:
-          'https://images.unsplash.com/photo-1517256064527-09c53b2d0bc6?w=600&auto=format&fit=crop',
-        createdBy: manager1._id,
-      },
-      {
-        name: 'Countertop High-Speed Blender',
-        sku: 'APPL-BLEN-02',
-        category: 'Appliances',
-        purchasePrice: 45,
-        sellingPrice: 79,
-        stockQuantity: 30,
-        image:
-          'https://images.unsplash.com/photo-1578643463396-0997cb5328c1?w=600&auto=format&fit=crop',
-        createdBy: manager1._id,
-      },
-      {
-        name: 'HEPA Silent Air Purifier',
-        sku: 'APPL-AIRP-03',
-        category: 'Appliances',
-        purchasePrice: 110,
-        sellingPrice: 189,
-        stockQuantity: 3, // Low stock
-        image:
-          'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&fit=crop',
-        createdBy: manager2._id,
-      },
-      {
-        name: 'Electric Gooseneck Kettle',
-        sku: 'APPL-KETT-04',
-        category: 'Appliances',
-        purchasePrice: 25,
-        sellingPrice: 49,
-        stockQuantity: 22,
-        image:
-          'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=600&auto=format&fit=crop',
-        createdBy: manager1._id,
-      },
-      {
-        name: 'Digital Touchscreen Air Fryer',
-        sku: 'APPL-FRYE-05',
-        category: 'Appliances',
-        purchasePrice: 60,
-        sellingPrice: 119,
-        stockQuantity: 14,
-        image:
-          'https://images.unsplash.com/photo-1621972750749-0fbb1abb7736?w=600&auto=format&fit=crop',
-        createdBy: manager2._id,
-      },
 
       // Apparel & Accessories
       {
         name: 'Classic Denim Jacket',
         sku: 'APPR-JACK-01',
-        category: 'Apparel',
+        category: 'Apparel & Accessories',
         purchasePrice: 35,
         sellingPrice: 65,
         stockQuantity: 50,
@@ -230,7 +162,7 @@ const seedMockData = async () => {
       {
         name: 'Retro Running Sneakers',
         sku: 'APPR-SNEA-02',
-        category: 'Apparel',
+        category: 'Apparel & Accessories',
         purchasePrice: 50,
         sellingPrice: 95,
         stockQuantity: 20,
@@ -241,7 +173,7 @@ const seedMockData = async () => {
       {
         name: 'Canvas Commuter Backpack',
         sku: 'APPR-BACK-03',
-        category: 'Apparel',
+        category: 'Apparel & Accessories',
         purchasePrice: 28,
         sellingPrice: 49,
         stockQuantity: 35,
@@ -252,7 +184,7 @@ const seedMockData = async () => {
       {
         name: 'RFID Blocking Leather Wallet',
         sku: 'APPR-WALL-04',
-        category: 'Apparel',
+        category: 'Apparel & Accessories',
         purchasePrice: 15,
         sellingPrice: 29,
         stockQuantity: 45,
@@ -263,7 +195,7 @@ const seedMockData = async () => {
       {
         name: 'Polarized Retro Sunglasses',
         sku: 'APPR-GLAS-05',
-        category: 'Apparel',
+        category: 'Apparel & Accessories',
         purchasePrice: 20,
         sellingPrice: 39,
         stockQuantity: 1, // Low stock
@@ -272,11 +204,149 @@ const seedMockData = async () => {
         createdBy: manager2._id,
       },
 
+      // Home & Kitchen
+      {
+        name: 'Espresso Coffee Maker',
+        sku: 'HOME-COFF-01',
+        category: 'Home & Kitchen',
+        purchasePrice: 150,
+        sellingPrice: 249,
+        stockQuantity: 12,
+        image:
+          'https://images.unsplash.com/photo-1517256064527-09c53b2d0bc6?w=600&auto=format&fit=crop',
+        createdBy: manager1._id,
+      },
+      {
+        name: 'Countertop High-Speed Blender',
+        sku: 'HOME-BLEN-02',
+        category: 'Home & Kitchen',
+        purchasePrice: 45,
+        sellingPrice: 79,
+        stockQuantity: 30,
+        image:
+          'https://images.unsplash.com/photo-1578643463396-0997cb5328c1?w=600&auto=format&fit=crop',
+        createdBy: manager1._id,
+      },
+      {
+        name: 'HEPA Silent Air Purifier',
+        sku: 'HOME-AIRP-03',
+        category: 'Home & Kitchen',
+        purchasePrice: 110,
+        sellingPrice: 189,
+        stockQuantity: 3, // Low stock
+        image:
+          'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&fit=crop',
+        createdBy: manager2._id,
+      },
+      {
+        name: 'Electric Gooseneck Kettle',
+        sku: 'HOME-KETT-04',
+        category: 'Home & Kitchen',
+        purchasePrice: 25,
+        sellingPrice: 49,
+        stockQuantity: 22,
+        image:
+          'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=600&auto=format&fit=crop',
+        createdBy: manager1._id,
+      },
+      {
+        name: 'Digital Touchscreen Air Fryer',
+        sku: 'HOME-FRYE-05',
+        category: 'Home & Kitchen',
+        purchasePrice: 60,
+        sellingPrice: 119,
+        stockQuantity: 14,
+        image:
+          'https://images.unsplash.com/photo-1621972750749-0fbb1abb7736?w=600&auto=format&fit=crop',
+        createdBy: manager2._id,
+      },
+
+      // Sports & Fitness
+      {
+        name: 'Eco-Friendly TPE Yoga Mat',
+        sku: 'SPOR-YOGA-01',
+        category: 'Sports & Fitness',
+        purchasePrice: 18,
+        sellingPrice: 35,
+        stockQuantity: 28,
+        image:
+          'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=600&auto=format&fit=crop',
+        createdBy: admin._id,
+      },
+      {
+        name: 'Adjustable Cast Iron Dumbbells',
+        sku: 'SPOR-DUMB-02',
+        category: 'Sports & Fitness',
+        purchasePrice: 45,
+        sellingPrice: 89,
+        stockQuantity: 12,
+        image:
+          'https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=600&auto=format&fit=crop',
+        createdBy: manager2._id,
+      },
+      {
+        name: 'Insulated Sports Water Bottle',
+        sku: 'SPOR-BOTT-03',
+        category: 'Sports & Fitness',
+        purchasePrice: 8,
+        sellingPrice: 19,
+        stockQuantity: 4, // Low stock
+        image:
+          'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&auto=format&fit=crop',
+        createdBy: manager1._id,
+      },
+      {
+        name: '4-Person Instant Camping Tent',
+        sku: 'SPOR-TENT-04',
+        category: 'Sports & Fitness',
+        purchasePrice: 80,
+        sellingPrice: 149,
+        stockQuantity: 6,
+        image:
+          'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&auto=format&fit=crop',
+        createdBy: admin._id,
+      },
+
+      // Beauty & Personal Care
+      {
+        name: 'Organic Retinol Face Serum',
+        sku: 'BEAU-SERU-01',
+        category: 'Beauty & Personal Care',
+        purchasePrice: 15,
+        sellingPrice: 28,
+        stockQuantity: 25,
+        image:
+          'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&auto=format&fit=crop',
+        createdBy: manager1._id,
+      },
+      {
+        name: 'Natural Oatmeal Bar Soap Pack',
+        sku: 'BEAU-SOAP-02',
+        category: 'Beauty & Personal Care',
+        purchasePrice: 6,
+        sellingPrice: 12,
+        stockQuantity: 50,
+        image:
+          'https://images.unsplash.com/photo-1546554137-f86b9593a222?w=600&auto=format&fit=crop',
+        createdBy: manager2._id,
+      },
+      {
+        name: 'Electric Sonic Toothbrush',
+        sku: 'BEAU-TOOT-03',
+        category: 'Beauty & Personal Care',
+        purchasePrice: 35,
+        sellingPrice: 69,
+        stockQuantity: 3, // Low stock
+        image:
+          'https://images.unsplash.com/photo-1559591937-e6b2103f6f66?w=600&auto=format&fit=crop',
+        createdBy: manager1._id,
+      },
+
       // Office Supplies
       {
         name: 'Ergonomic Mesh Desk Chair',
         sku: 'OFFI-CHAI-01',
-        category: 'Office',
+        category: 'Office Supplies',
         purchasePrice: 140,
         sellingPrice: 220,
         stockQuantity: 10,
@@ -287,7 +357,7 @@ const seedMockData = async () => {
       {
         name: 'LED Eye-Care Desk Lamp',
         sku: 'OFFI-LAMP-02',
-        category: 'Office',
+        category: 'Office Supplies',
         purchasePrice: 22,
         sellingPrice: 39,
         stockQuantity: 2, // Low stock
@@ -298,7 +368,7 @@ const seedMockData = async () => {
       {
         name: 'Executive Leather Planner',
         sku: 'OFFI-PLAN-03',
-        category: 'Office',
+        category: 'Office Supplies',
         purchasePrice: 12,
         sellingPrice: 24,
         stockQuantity: 55,
@@ -307,64 +377,158 @@ const seedMockData = async () => {
         createdBy: manager2._id,
       },
 
-      // Fitness & Outdoors
+      // Books & Stationery
       {
-        name: 'Eco-Friendly TPE Yoga Mat',
-        sku: 'FITN-YOGA-01',
-        category: 'Fitness',
-        purchasePrice: 18,
-        sellingPrice: 35,
-        stockQuantity: 28,
+        name: 'Hardcover Mixed Media Sketchbook',
+        sku: 'BOOK-SKET-01',
+        category: 'Books & Stationery',
+        purchasePrice: 9,
+        sellingPrice: 18,
+        stockQuantity: 30,
         image:
-          'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=600&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop',
         createdBy: admin._id,
       },
       {
-        name: 'Adjustable Cast Iron Dumbbells',
-        sku: 'FITN-DUMB-02',
-        category: 'Fitness',
-        purchasePrice: 45,
-        sellingPrice: 89,
-        stockQuantity: 12,
+        name: 'Classic Brass Fountain Pen Set',
+        sku: 'BOOK-PENS-02',
+        category: 'Books & Stationery',
+        purchasePrice: 22,
+        sellingPrice: 45,
+        stockQuantity: 15,
         image:
-          'https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=600&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=600&auto=format&fit=crop',
         createdBy: manager2._id,
       },
       {
-        name: 'Insulated Sports Water Bottle',
-        sku: 'FITN-BOTT-03',
-        category: 'Fitness',
+        name: 'A5 Dotted Bullet Journal',
+        sku: 'BOOK-NOTE-03',
+        category: 'Books & Stationery',
         purchasePrice: 8,
-        sellingPrice: 19,
-        stockQuantity: 4, // Low stock
+        sellingPrice: 15,
+        stockQuantity: 40,
         image:
-          'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&auto=format&fit=crop',
         createdBy: manager1._id,
       },
+
+      // Grocery & Beverages
       {
-        name: '4-Person Instant Camping Tent',
-        sku: 'FITN-TENT-04',
-        category: 'Fitness',
-        purchasePrice: 80,
-        sellingPrice: 149,
-        stockQuantity: 6,
+        name: 'Organic Espresso Coffee Beans (1kg)',
+        sku: 'GROC-COFF-01',
+        category: 'Grocery & Beverages',
+        purchasePrice: 14,
+        sellingPrice: 26,
+        stockQuantity: 35,
         image:
-          'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop',
         createdBy: admin._id,
+      },
+      {
+        name: 'Premium Japanese Sencha Green Tea',
+        sku: 'GROC-TEAS-02',
+        category: 'Grocery & Beverages',
+        purchasePrice: 11,
+        sellingPrice: 22,
+        stockQuantity: 28,
+        image:
+          'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=600&auto=format&fit=crop',
+        createdBy: manager2._id,
+      },
+      {
+        name: 'Artisanal Cold Brew Glass Bottle (4-Pack)',
+        sku: 'GROC-COLD-03',
+        category: 'Grocery & Beverages',
+        purchasePrice: 10,
+        sellingPrice: 19,
+        stockQuantity: 1, // Low stock
+        image:
+          'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&auto=format&fit=crop',
+        createdBy: manager1._id,
+      },
+
+      // Automotive
+      {
+        name: 'Heavy-Duty Car Air Compressor',
+        sku: 'AUTO-COMP-01',
+        category: 'Automotive',
+        purchasePrice: 24,
+        sellingPrice: 49,
+        stockQuantity: 18,
+        image:
+          'https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=600&auto=format&fit=crop',
+        createdBy: admin._id,
+      },
+      {
+        name: 'Dual-Lens Dashcam Recorder 4K',
+        sku: 'AUTO-DASH-02',
+        category: 'Automotive',
+        purchasePrice: 55,
+        sellingPrice: 99,
+        stockQuantity: 12,
+        image:
+          'https://images.unsplash.com/photo-1508974239320-0a029497e820?w=600&auto=format&fit=crop',
+        createdBy: manager2._id,
+      },
+      {
+        name: 'Microfiber Car Detailing Wash Mitts',
+        sku: 'AUTO-MITT-03',
+        category: 'Automotive',
+        purchasePrice: 5,
+        sellingPrice: 11,
+        stockQuantity: 50,
+        image:
+          'https://images.unsplash.com/photo-1607860108855-64cac207c74c?w=600&auto=format&fit=crop',
+        createdBy: manager1._id,
+      },
+
+      // Toys & Games
+      {
+        name: 'Handcrafted Wooden Chess Set',
+        sku: 'TOYS-CHES-01',
+        category: 'Toys & Games',
+        purchasePrice: 30,
+        sellingPrice: 59,
+        stockQuantity: 16,
+        image:
+          'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=600&auto=format&fit=crop',
+        createdBy: admin._id,
+      },
+      {
+        name: 'Retro Handheld Gaming Console',
+        sku: 'TOYS-HAND-02',
+        category: 'Toys & Games',
+        purchasePrice: 40,
+        sellingPrice: 79,
+        stockQuantity: 14,
+        image:
+          'https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?w=600&auto=format&fit=crop',
+        createdBy: manager2._id,
+      },
+      {
+        name: '3D Wooden Brainteaser Assembly Puzzle',
+        sku: 'TOYS-PUZZ-03',
+        category: 'Toys & Games',
+        purchasePrice: 8,
+        sellingPrice: 16,
+        stockQuantity: 2, // Low stock
+        image:
+          'https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?w=600&auto=format&fit=crop',
+        createdBy: manager1._id,
       },
     ];
 
     const seededProducts = await ProductModel.insertMany(productsData);
     console.log('✅ Products seeded.');
 
-    // 3. Seed Sales History (12 Sales spanning the past 14 days)
+    // 3. Seed Sales History (20 Sales spanning the past 14 days)
     console.log('💰 Seeding Sales History...');
     const salesData = [
       {
         customer: 'Acme Corporation',
         items: [
           {
-            product: seededProducts[0]._id, // ANC Headphones
+            product: seededProducts[0]._id, // Headphones
             productName: seededProducts[0].name,
             quantity: 3,
             unitPrice: seededProducts[0].sellingPrice,
@@ -395,10 +559,10 @@ const seedMockData = async () => {
         ],
         grandTotal: seededProducts[4].sellingPrice,
         soldBy: employee2._id,
-        createdAt: new Date(Date.now() - 12 * 24 * 60 * 60 * 1000),
+        createdAt: new Date(Date.now() - 13 * 24 * 60 * 60 * 1000),
       },
       {
-        customer: 'Dr. Sarah Jenkins',
+        customer: 'Alice Vance (Self Service)',
         items: [
           {
             product: seededProducts[2]._id, // Fitness Watch
@@ -408,31 +572,31 @@ const seedMockData = async () => {
             subtotal: seededProducts[2].sellingPrice * 1,
           },
           {
-            product: seededProducts[14]._id, // Backpack
-            productName: seededProducts[14].name,
+            product: seededProducts[8]._id, // Backpack
+            productName: seededProducts[8].name,
             quantity: 1,
-            unitPrice: seededProducts[14].sellingPrice,
-            subtotal: seededProducts[14].sellingPrice * 1,
+            unitPrice: seededProducts[8].sellingPrice,
+            subtotal: seededProducts[8].sellingPrice * 1,
           },
         ],
-        grandTotal: seededProducts[2].sellingPrice + seededProducts[14].sellingPrice,
+        grandTotal: seededProducts[2].sellingPrice + seededProducts[8].sellingPrice,
         soldBy: employee1._id,
-        createdAt: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000),
+        createdAt: new Date(Date.now() - 12 * 24 * 60 * 60 * 1000),
       },
       {
         customer: 'Urban Space Designs',
         items: [
           {
-            product: seededProducts[17]._id, // Mesh Desk Chair
-            productName: seededProducts[17].name,
+            product: seededProducts[23]._id, // Desk Chair
+            productName: seededProducts[23].name,
             quantity: 2,
-            unitPrice: seededProducts[17].sellingPrice,
-            subtotal: seededProducts[17].sellingPrice * 2,
+            unitPrice: seededProducts[23].sellingPrice,
+            subtotal: seededProducts[23].sellingPrice * 2,
           },
         ],
-        grandTotal: seededProducts[17].sellingPrice * 2,
+        grandTotal: seededProducts[23].sellingPrice * 2,
         soldBy: manager1._id,
-        createdAt: new Date(Date.now() - 8 * 24 * 60 * 60 * 1000),
+        createdAt: new Date(Date.now() - 11 * 24 * 60 * 60 * 1000),
       },
       {
         customer: 'Global Builders Inc',
@@ -445,82 +609,82 @@ const seedMockData = async () => {
             subtotal: seededProducts[5].sellingPrice * 5,
           },
           {
-            product: seededProducts[19]._id, // Executive Planner
-            productName: seededProducts[19].name,
+            product: seededProducts[25]._id, // Executive Planner
+            productName: seededProducts[25].name,
             quantity: 10,
-            unitPrice: seededProducts[19].sellingPrice,
-            subtotal: seededProducts[19].sellingPrice * 10,
+            unitPrice: seededProducts[25].sellingPrice,
+            subtotal: seededProducts[25].sellingPrice * 10,
           },
         ],
-        grandTotal: seededProducts[5].sellingPrice * 5 + seededProducts[19].sellingPrice * 10,
+        grandTotal: seededProducts[5].sellingPrice * 5 + seededProducts[25].sellingPrice * 10,
         soldBy: employee2._id,
-        createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
+        createdAt: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000),
       },
       {
         customer: 'FitLife Gymnasium',
         items: [
           {
-            product: seededProducts[20]._id, // Yoga Mat
-            productName: seededProducts[20].name,
+            product: seededProducts[16]._id, // Yoga Mat
+            productName: seededProducts[16].name,
             quantity: 8,
-            unitPrice: seededProducts[20].sellingPrice,
-            subtotal: seededProducts[20].sellingPrice * 8,
+            unitPrice: seededProducts[16].sellingPrice,
+            subtotal: seededProducts[16].sellingPrice * 8,
           },
           {
-            product: seededProducts[21]._id, // Dumbbells
-            productName: seededProducts[21].name,
+            product: seededProducts[17]._id, // Dumbbells
+            productName: seededProducts[17].name,
             quantity: 4,
-            unitPrice: seededProducts[21].sellingPrice,
-            subtotal: seededProducts[21].sellingPrice * 4,
+            unitPrice: seededProducts[17].sellingPrice,
+            subtotal: seededProducts[17].sellingPrice * 4,
           },
         ],
-        grandTotal: seededProducts[20].sellingPrice * 8 + seededProducts[21].sellingPrice * 4,
+        grandTotal: seededProducts[16].sellingPrice * 8 + seededProducts[17].sellingPrice * 4,
         soldBy: employee1._id,
-        createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000),
+        createdAt: new Date(Date.now() - 9 * 24 * 60 * 60 * 1000),
       },
       {
         customer: 'Jonathan Carter',
         items: [
           {
-            product: seededProducts[12]._id, // Denim Jacket
-            productName: seededProducts[12].name,
+            product: seededProducts[6]._id, // Denim Jacket
+            productName: seededProducts[6].name,
             quantity: 1,
-            unitPrice: seededProducts[12].sellingPrice,
-            subtotal: seededProducts[12].sellingPrice * 1,
+            unitPrice: seededProducts[6].sellingPrice,
+            subtotal: seededProducts[6].sellingPrice * 1,
           },
           {
-            product: seededProducts[13]._id, // Running Sneakers
-            productName: seededProducts[13].name,
+            product: seededProducts[7]._id, // Running Sneakers
+            productName: seededProducts[7].name,
             quantity: 1,
-            unitPrice: seededProducts[13].sellingPrice,
-            subtotal: seededProducts[13].sellingPrice * 1,
+            unitPrice: seededProducts[7].sellingPrice,
+            subtotal: seededProducts[7].sellingPrice * 1,
           },
         ],
-        grandTotal: seededProducts[12].sellingPrice + seededProducts[13].sellingPrice,
+        grandTotal: seededProducts[6].sellingPrice + seededProducts[7].sellingPrice,
         soldBy: employee2._id,
-        createdAt: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000),
+        createdAt: new Date(Date.now() - 8 * 24 * 60 * 60 * 1000),
       },
       {
         customer: 'HomeStylers',
         items: [
           {
-            product: seededProducts[7]._id, // Coffee Maker
-            productName: seededProducts[7].name,
+            product: seededProducts[11]._id, // Coffee Maker
+            productName: seededProducts[11].name,
             quantity: 2,
-            unitPrice: seededProducts[7].sellingPrice,
-            subtotal: seededProducts[7].sellingPrice * 2,
+            unitPrice: seededProducts[11].sellingPrice,
+            subtotal: seededProducts[11].sellingPrice * 2,
           },
           {
-            product: seededProducts[8]._id, // Blender
-            productName: seededProducts[8].name,
+            product: seededProducts[12]._id, // Blender
+            productName: seededProducts[12].name,
             quantity: 1,
-            unitPrice: seededProducts[8].sellingPrice,
-            subtotal: seededProducts[8].sellingPrice * 1,
+            unitPrice: seededProducts[12].sellingPrice,
+            subtotal: seededProducts[12].sellingPrice * 1,
           },
         ],
-        grandTotal: seededProducts[7].sellingPrice * 2 + seededProducts[8].sellingPrice * 1,
+        grandTotal: seededProducts[11].sellingPrice * 2 + seededProducts[12].sellingPrice * 1,
         soldBy: manager2._id,
-        createdAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000),
+        createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
       },
       {
         customer: 'Alpha Studios',
@@ -532,68 +696,202 @@ const seedMockData = async () => {
             unitPrice: seededProducts[3].sellingPrice,
             subtotal: seededProducts[3].sellingPrice * 2,
           },
-          {
-            product: seededProducts[6]._id, // Bluetooth Speaker
-            productName: seededProducts[6].name,
-            quantity: 3,
-            unitPrice: seededProducts[6].sellingPrice,
-            subtotal: seededProducts[6].sellingPrice * 3,
-          },
         ],
-        grandTotal: seededProducts[3].sellingPrice * 2 + seededProducts[6].sellingPrice * 3,
+        grandTotal: seededProducts[3].sellingPrice * 2,
         soldBy: employee1._id,
-        createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
+        createdAt: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000),
       },
       {
         customer: 'Apex Fitness Co',
         items: [
           {
-            product: seededProducts[22]._id, // Sports Water Bottle
-            productName: seededProducts[22].name,
+            product: seededProducts[18]._id, // Sports Water Bottle
+            productName: seededProducts[18].name,
             quantity: 10,
-            unitPrice: seededProducts[22].sellingPrice,
-            subtotal: seededProducts[22].sellingPrice * 10,
+            unitPrice: seededProducts[18].sellingPrice,
+            subtotal: seededProducts[18].sellingPrice * 10,
           },
         ],
-        grandTotal: seededProducts[22].sellingPrice * 10,
+        grandTotal: seededProducts[18].sellingPrice * 10,
         soldBy: employee2._id,
-        createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000),
+        createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000),
       },
       {
         customer: 'Vanguard Offices',
         items: [
           {
-            product: seededProducts[17]._id, // Ergonomic Chair
-            productName: seededProducts[17].name,
+            product: seededProducts[23]._id, // Ergonomic Chair
+            productName: seededProducts[23].name,
             quantity: 3,
-            unitPrice: seededProducts[17].sellingPrice,
-            subtotal: seededProducts[17].sellingPrice * 3,
+            unitPrice: seededProducts[23].sellingPrice,
+            subtotal: seededProducts[23].sellingPrice * 3,
           },
           {
-            product: seededProducts[18]._id, // LED Desk Lamp
-            productName: seededProducts[18].name,
+            product: seededProducts[24]._id, // LED Desk Lamp
+            productName: seededProducts[24].name,
             quantity: 5,
-            unitPrice: seededProducts[18].sellingPrice,
-            subtotal: seededProducts[18].sellingPrice * 5,
+            unitPrice: seededProducts[24].sellingPrice,
+            subtotal: seededProducts[24].sellingPrice * 5,
           },
         ],
-        grandTotal: seededProducts[17].sellingPrice * 3 + seededProducts[18].sellingPrice * 5,
+        grandTotal: seededProducts[23].sellingPrice * 3 + seededProducts[24].sellingPrice * 5,
         soldBy: manager1._id,
-        createdAt: new Date(), // Today
+        createdAt: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000),
       },
       {
         customer: 'Camping Gear Outlet',
         items: [
           {
-            product: seededProducts[23]._id, // Camping Tent
-            productName: seededProducts[23].name,
+            product: seededProducts[19]._id, // Camping Tent
+            productName: seededProducts[19].name,
             quantity: 2,
-            unitPrice: seededProducts[23].sellingPrice,
-            subtotal: seededProducts[23].sellingPrice * 2,
+            unitPrice: seededProducts[19].sellingPrice,
+            subtotal: seededProducts[19].sellingPrice * 2,
           },
         ],
-        grandTotal: seededProducts[23].sellingPrice * 2,
+        grandTotal: seededProducts[19].sellingPrice * 2,
         soldBy: employee1._id,
+        createdAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000),
+      },
+      {
+        customer: 'Studio Wellness',
+        items: [
+          {
+            product: seededProducts[20]._id, // Retinol Serum
+            productName: seededProducts[20].name,
+            quantity: 5,
+            unitPrice: seededProducts[20].sellingPrice,
+            subtotal: seededProducts[20].sellingPrice * 5,
+          },
+        ],
+        grandTotal: seededProducts[20].sellingPrice * 5,
+        soldBy: employee2._id,
+        createdAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000),
+      },
+      {
+        customer: 'The Reader Haven',
+        items: [
+          {
+            product: seededProducts[26]._id, // Sketchbook
+            productName: seededProducts[26].name,
+            quantity: 3,
+            unitPrice: seededProducts[26].sellingPrice,
+            subtotal: seededProducts[26].sellingPrice * 3,
+          },
+          {
+            product: seededProducts[28]._id, // Bullet Journal
+            productName: seededProducts[28].name,
+            quantity: 4,
+            unitPrice: seededProducts[28].sellingPrice,
+            subtotal: seededProducts[28].sellingPrice * 4,
+          },
+        ],
+        grandTotal: seededProducts[26].sellingPrice * 3 + seededProducts[28].sellingPrice * 4,
+        soldBy: employee1._id,
+        createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
+      },
+      {
+        customer: 'Car Care Specialists',
+        items: [
+          {
+            product: seededProducts[32]._id, // Air Compressor
+            productName: seededProducts[32].name,
+            quantity: 1,
+            unitPrice: seededProducts[32].sellingPrice,
+            subtotal: seededProducts[32].sellingPrice * 1,
+          },
+          {
+            product: seededProducts[34]._id, // Wash Mitts
+            productName: seededProducts[34].name,
+            quantity: 6,
+            unitPrice: seededProducts[34].sellingPrice,
+            subtotal: seededProducts[34].sellingPrice * 6,
+          },
+        ],
+        grandTotal: seededProducts[32].sellingPrice * 1 + seededProducts[34].sellingPrice * 6,
+        soldBy: manager2._id,
+        createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
+      },
+      {
+        customer: 'Nirvana Coffee Bar',
+        items: [
+          {
+            product: seededProducts[29]._id, // Coffee beans
+            productName: seededProducts[29].name,
+            quantity: 6,
+            unitPrice: seededProducts[29].sellingPrice,
+            subtotal: seededProducts[29].sellingPrice * 6,
+          },
+        ],
+        grandTotal: seededProducts[29].sellingPrice * 6,
+        soldBy: employee2._id,
+        createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000),
+      },
+      {
+        customer: 'Hobby Lobbyist',
+        items: [
+          {
+            product: seededProducts[35]._id, // Chess Set
+            productName: seededProducts[35].name,
+            quantity: 2,
+            unitPrice: seededProducts[35].sellingPrice,
+            subtotal: seededProducts[35].sellingPrice * 2,
+          },
+          {
+            product: seededProducts[36]._id, // Game Console
+            productName: seededProducts[36].name,
+            quantity: 1,
+            unitPrice: seededProducts[36].sellingPrice,
+            subtotal: seededProducts[36].sellingPrice * 1,
+          },
+        ],
+        grandTotal: seededProducts[35].sellingPrice * 2 + seededProducts[36].sellingPrice * 1,
+        soldBy: employee1._id,
+        createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000),
+      },
+      {
+        customer: 'Alpha Car Detailing',
+        items: [
+          {
+            product: seededProducts[33]._id, // Dashcam
+            productName: seededProducts[33].name,
+            quantity: 2,
+            unitPrice: seededProducts[33].sellingPrice,
+            subtotal: seededProducts[33].sellingPrice * 2,
+          },
+        ],
+        grandTotal: seededProducts[33].sellingPrice * 2,
+        soldBy: manager1._id,
+        createdAt: new Date(), // Today
+      },
+      {
+        customer: 'Stationery Hub',
+        items: [
+          {
+            product: seededProducts[27]._id, // Fountain Pen
+            productName: seededProducts[27].name,
+            quantity: 2,
+            unitPrice: seededProducts[27].sellingPrice,
+            subtotal: seededProducts[27].sellingPrice * 2,
+          },
+        ],
+        grandTotal: seededProducts[27].sellingPrice * 2,
+        soldBy: employee1._id,
+        createdAt: new Date(), // Today
+      },
+      {
+        customer: 'Fit & Wellness Gym',
+        items: [
+          {
+            product: seededProducts[16]._id, // Yoga mat
+            productName: seededProducts[16].name,
+            quantity: 5,
+            unitPrice: seededProducts[16].sellingPrice,
+            subtotal: seededProducts[16].sellingPrice * 5,
+          },
+        ],
+        grandTotal: seededProducts[16].sellingPrice * 5,
+        soldBy: employee2._id,
         createdAt: new Date(), // Today
       },
     ];
