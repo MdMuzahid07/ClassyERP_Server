@@ -85,23 +85,31 @@ const apiLimiter = rateLimit({
 app.use(express.json({ limit: '10kb' })); // Body limit
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
-const allowedOrigins =
-  config.NODE_ENV === 'production'
-    ? ['https://classyerp.vercel.app']
-    : ['http://localhost:5173', 'https://classyerp.vercel.app'];
+const allowedOrigins = ['https://classyerp.vercel.app', 'http://localhost:5173'];
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin) {
+        callback(null, true);
+        return;
+      }
+
+      const isAllowed =
+        allowedOrigins.includes(origin) ||
+        origin.endsWith('.vercel.app') ||
+        /^https?:\/\/localhost:\d+$/.test(origin);
+
+      if (isAllowed) {
         callback(null, true);
       } else {
+        console.warn(`[CORS] Blocked origin: ${origin}`);
         callback(new Error('Not allowed by CORS'));
       }
     },
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
     maxAge: 86400,
   })
 );
