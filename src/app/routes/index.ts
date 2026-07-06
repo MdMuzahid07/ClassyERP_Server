@@ -3,6 +3,7 @@ import { AuthRoutes } from '../modules/auth/auth.route';
 import { ProductRoutes } from '../modules/product/product.route';
 import { SaleRoutes } from '../modules/sale/sale.route';
 import { DashboardRoutes } from '../modules/dashboard/dashboard.route';
+import { UploadRoutes } from '../modules/upload/upload.routes';
 
 const router = express.Router();
 
@@ -22,6 +23,10 @@ const moduleRoutes = [
   {
     path: '/dashboard',
     route: DashboardRoutes,
+  },
+  {
+    path: '/upload',
+    route: UploadRoutes,
   },
 ];
 

@@ -22,6 +22,10 @@ const createProductSchema = z.object({
       .int('Stock quantity must be an integer')
       .min(0, 'Stock quantity cannot be negative')
       .default(0),
+    image: z
+      .string({ message: 'Product image URL is required' })
+      .trim()
+      .min(1, 'Product image URL cannot be empty'),
   }),
 });
 
@@ -37,6 +41,7 @@ const updateProductSchema = z.object({
       .int('Stock quantity must be an integer')
       .min(0, 'Stock quantity cannot be negative')
       .optional(),
+    image: z.string().trim().min(1, 'Product image URL cannot be empty').optional(),
   }),
 });
 

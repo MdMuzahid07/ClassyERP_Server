@@ -7,12 +7,11 @@ import { ProductService } from './product.service';
 import { type IProduct } from './product.interface';
 
 const createProduct = catchAsync(async (req: Request, res: Response) => {
-  if (!req.file) {
+  const body = req.body as Record<string, unknown>;
+  if (!body.image) {
     throw new CustomAppError(httpStatus.BAD_REQUEST, 'Product image is required');
   }
 
-  const body = req.body as Record<string, unknown>;
-  body.image = req.file.path; // Cloudinary URL
   body.createdBy = (req.user as { id: string }).id;
 
   const result = await ProductService.createProductIntoDB(body as unknown as IProduct);
@@ -68,9 +67,6 @@ const updateProduct = catchAsync(async (req: Request, res: Response) => {
   }
 
   const body = req.body as Record<string, unknown>;
-  if (req.file) {
-    body.image = req.file.path; // New Cloudinary URL
-  }
 
   const result = await ProductService.updateProductInDB(id, body);
 

@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import authorizationGuard from '../../middlewares/authorizationGuard';
 import requestValidator from '../../middlewares/requestValidator';
-import { upload } from '../upload/upload';
 import { ProductController } from './product.controller';
 import { ProductValidation } from './product.validation';
 import { USER_ROLE } from '../auth/auth.interface';
@@ -11,7 +10,6 @@ const router = Router();
 router.post(
   '/',
   authorizationGuard(USER_ROLE.ADMIN, USER_ROLE.MANAGER),
-  upload.single('image'),
   requestValidator(ProductValidation.createProductSchema),
   ProductController.createProduct
 );
@@ -31,7 +29,6 @@ router.get(
 router.patch(
   '/:id',
   authorizationGuard(USER_ROLE.ADMIN, USER_ROLE.MANAGER),
-  upload.single('image'),
   requestValidator(ProductValidation.updateProductSchema),
   ProductController.updateProduct
 );
