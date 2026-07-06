@@ -1,7 +1,5 @@
 import { type Request, type Response } from 'express';
 import httpStatus from 'http-status';
-import fs from 'fs';
-import path from 'path';
 import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/send.response';
 import CustomAppError from '../../errors/CustomAppError';
@@ -14,7 +12,7 @@ const createProduct = catchAsync(async (req: Request, res: Response) => {
   }
 
   const body = req.body as Record<string, unknown>;
-  body.image = `uploads/products/${req.file.filename}`;
+  body.image = req.file.path; // Cloudinary URL
   body.createdBy = (req.user as { id: string }).id;
 
   const result = await ProductService.createProductIntoDB(body as unknown as IProduct);
@@ -71,22 +69,10 @@ const updateProduct = catchAsync(async (req: Request, res: Response) => {
 
   const body = req.body as Record<string, unknown>;
   if (req.file) {
-    body.image = `uploads/products/${req.file.filename}`;
+    body.image = req.file.path; // New Cloudinary URL
   }
 
   const result = await ProductService.updateProductInDB(id, body);
-
-  // Delete the old image file if a new one was uploaded successfully
-  if (req.file && product.image) {
-    const oldImagePath = path.join(process.cwd(), product.image);
-    fs.access(oldImagePath, fs.constants.F_OK, (err) => {
-      if (!err) {
-        fs.unlink(oldImagePath, () => {
-          // file unlinked asynchronously
-        });
-      }
-    });
-  }
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -105,18 +91,6 @@ const deleteProduct = catchAsync(async (req: Request, res: Response) => {
   }
 
   await ProductService.deleteProductFromDB(id);
-
-  // Delete the image file from disk
-  if (product.image) {
-    const imagePath = path.join(process.cwd(), product.image);
-    fs.access(imagePath, fs.constants.F_OK, (err) => {
-      if (!err) {
-        fs.unlink(imagePath, () => {
-          // file unlinked asynchronously
-        });
-      }
-    });
-  }
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

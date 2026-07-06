@@ -29,6 +29,8 @@
     "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
     "start": "node ./dist/server.js",
     "build": "tsc",
+    "seed": "ts-node ./src/seedAdmin.ts",
+    "seed:db": "ts-node ./src/seedMockData.ts",
     "lint": "eslint src --ignore-pattern .ts",
     "lint-fix": "eslint src --fix",
     "prettier": "prettier --ignore-path .gitignore --write \"./src/**/*.+(js|ts|json)\"",

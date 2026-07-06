@@ -2,7 +2,6 @@ import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express, { type Application, type Request, type Response } from 'express';
-import path from 'path';
 import mongoSanitize from 'express-mongo-sanitize';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
@@ -109,7 +108,6 @@ app.use(
 
 app.use(cookieParser());
 app.use(compression());
-app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 
 // Health Check (secured - don't expose uptime)
 app.get('/', (req: Request, res: Response) => {

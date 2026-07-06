@@ -10,16 +10,16 @@ const seedAdmin = async () => {
       throw new Error('DATABASE_URL is missing in the configuration.');
     }
 
-    //  Connect
+    // Connect
     await mongoose.connect(config.database_url);
     console.log('🌱 Database connected for seeding...');
 
-    //  Define Credentials
+    // Define Credentials
     const adminEmail = process.argv[2] ?? config.admin_email ?? 'mdmuzahid.dev@gmail.com';
     const adminPassword =
       process.argv[3] ?? config.admin_password ?? 'CommandCenter@&$FYDDcj$^%6##@33!@';
 
-    //  Check Existence
+    // Check Existence
     const userExists = await UserModel.findOne({
       $or: [{ email: adminEmail }, { role: 'Admin' }],
     });
@@ -28,7 +28,6 @@ const seedAdmin = async () => {
       console.log('⚠️  Admin already exists. Seeding skipped.');
     } else {
       // Create Admin
-      // We pass the PLAIN password here. The Model's pre-save hook will hash it.
       await UserModel.create({
         name: 'System Admin',
         email: adminEmail,
@@ -39,14 +38,13 @@ const seedAdmin = async () => {
 
       console.log('✅ Admin created successfully!');
       console.log(`📧 Email: ${adminEmail}`);
-      // Security: Do not log the password
       console.log(`🔑 Password: [HIDDEN] (Use the password you defined in env/args)`);
     }
   } catch (error) {
     console.error('❌ Error seeding admin:', error);
     process.exit(1);
   } finally {
-    //  Graceful Shutdown
+    // Graceful Shutdown
     await mongoose.disconnect();
     console.log('🔌 Database connection closed.');
     process.exit(0);

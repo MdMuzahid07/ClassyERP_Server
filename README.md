@@ -42,20 +42,27 @@ A robust, enterprise-grade modular monolith backend for the Mini ERP system. Bui
    - `JWT_ACCESS_SECRET_KEY` & `JWT_REFRESH_SECRET_KEY`: JWT Signing Secrets
    - `LOW_STOCK_THRESHOLD`: Threshold for low stock warning triggers (default `5`)
 
-4. **Seed Database (Admin)**:
-   Register the default System Administrator:
+4. **Seed Database (Production Admin)**:
+   Create the default Administrator account in MongoDB:
 
    ```bash
    yarn seed
    ```
 
-5. **Run the Development Server**:
+5. **Seed Database (Development Mock Data)**:
+   Populate the database with multiple test users, products, and sales transactions:
+
+   ```bash
+   yarn seed:mock
+   ```
+
+6. **Run Development Server**:
 
    ```bash
    yarn dev
    ```
 
-6. **Build for Production**:
+7. **Build for Production**:
    ```bash
    yarn build
    ```
