@@ -4,6 +4,13 @@ import CustomAppError from '../../errors/CustomAppError';
 import ProductModel from '../product/product.model';
 import SaleModel from './sale.model';
 import QueryBuilder from '../../builder/QueryBuilder';
+import config from '../../config';
+import { getIO } from '../../socket';
+import {
+  type TNewSaleEvent,
+  type TStockUpdatedEvent,
+  type TLowStockAlertEvent,
+} from '../../socket/socket.interface';
 
 const createSale = async (
   userId: string,
@@ -17,6 +24,7 @@ const createSale = async (
 
   try {
     const saleItems = [];
+    const updatedProducts = [];
     let grandTotal = 0;
 
     for (const item of payload.products) {
@@ -36,6 +44,12 @@ const createSale = async (
       if (!updatedProduct) {
         throw new CustomAppError(httpStatus.BAD_REQUEST, `Insufficient stock for ${product.name}`);
       }
+
+      updatedProducts.push({
+        productId: updatedProduct._id,
+        name: updatedProduct.name,
+        stockQuantity: updatedProduct.stockQuantity,
+      });
 
       const subtotal = product.sellingPrice * item.quantity;
       grandTotal += subtotal;
@@ -60,6 +74,40 @@ const createSale = async (
     const [newSale] = await SaleModel.create([saleData], { session });
 
     await session.commitTransaction();
+
+    // Trigger real-time Socket.io events after successful commit
+    try {
+      const io = getIO();
+      // 1. Emit newSale to admin-manager-room
+      const newSalePayload: TNewSaleEvent = {
+        saleId: newSale._id,
+        grandTotal: newSale.grandTotal,
+        soldBy: newSale.soldBy,
+        itemCount: saleItems.length,
+      };
+      io.to('admin-manager-room').emit('newSale', newSalePayload);
+
+      // 2. Broadcast stock updates and conditional low stock alerts
+      for (const prod of updatedProducts) {
+        const stockPayload: TStockUpdatedEvent = {
+          productId: prod.productId,
+          name: prod.name,
+          stockQuantity: prod.stockQuantity,
+        };
+        io.emit('stockUpdated', stockPayload);
+
+        if (prod.stockQuantity < config.low_stock_threshold) {
+          const lowStockPayload: TLowStockAlertEvent = {
+            productId: prod.productId,
+            name: prod.name,
+            stockQuantity: prod.stockQuantity,
+          };
+          io.to('admin-manager-room').emit('lowStockAlert', lowStockPayload);
+        }
+      }
+    } catch (err) {
+      console.warn('Failed to emit real-time socket events:', err);
+    }
 
     const result = await SaleModel.findById(newSale._id)
       .populate('items.product')

@@ -21,6 +21,7 @@ const envVarsSchema = z.object({
   BCRYPT_SALT_ROUND: z.coerce.number().default(12),
   DATABASE_NAME: z.string().default('portfolio'),
   LOW_STOCK_THRESHOLD: z.coerce.number().default(5),
+  CLIENT_URL: z.string().url().default('http://localhost:5173'),
 });
 
 const envVars = envVarsSchema.safeParse(process.env);
@@ -47,4 +48,5 @@ export default {
   bcrypt_salt_rounds: data.BCRYPT_SALT_ROUND,
   database_name: data.DATABASE_NAME,
   low_stock_threshold: data.LOW_STOCK_THRESHOLD,
+  client_url: data.CLIENT_URL,
 };
